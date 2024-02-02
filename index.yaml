@@ -44,4 +44,15 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-client-0.1.0/zk-client-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-29T09:37:44.597539198Z"
+  zk-scenario-manager:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-02-02T10:58:15.755585621Z"
+    description: A Helm chart for Kubernetes
+    digest: 9e23c0be78396978aef08e6dd17ac749946531cdca4a7ec8216f9da994be601e
+    name: zk-scenario-manager
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.1.0/zk-scenario-manager-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-02-02T10:58:15.755589869Z"
