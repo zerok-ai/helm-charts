@@ -1,0 +1,36 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    redis:
+      port: {{ .Values.redis.port }}
+      readTimeout: {{ .Values.redis.readTimeout }}
+      dbs:
+        filtered_traces: {{ .Values.redis.dbs.filtered_traces }}
+        scenarios: {{ .Values.redis.dbs.scenarios }}
+        traces: {{ .Values.redis.dbs.traces }}
+        executor_attr: {{ .Values.redis.dbs.executor_attr }}
+        pod_details: {{ .Values.redis.dbs.pod_details }}
+        error_details: {{ .Values.redis.dbs.error_details }}
+        resource_and_scope_attr: 5
+    server:
+      host: 0.0.0.0
+      port: 80
+    scenarioConfig:
+      processingIntervalInSeconds: 10
+    logs:
+      color: {{ .Values.serviceConfigs.logs.color }}
+      level: {{ .Values.serviceConfigs.logs.level }}
+    workLoad:
+      ttl: {{ .Values.workLoadTtl }}
+      tickerDuration: {{ .Values.workLoadTickerDuration }}
+    exporter:
+      host: 0.0.0.0
+      port: 4319
+    otelQueueWorkerCount: {{ .Values.otelQueueWorkerCount }}
+kind: ConfigMap
+metadata:
+  name: {{ include "zk-scenario-manager.fullname" . }}
+  labels:
+    app: {{ include "zk-scenario-manager.fullname" . }}
+    name: {{ include "zk-scenario-manager.fullname" . }}
+  namespace: zk-client
