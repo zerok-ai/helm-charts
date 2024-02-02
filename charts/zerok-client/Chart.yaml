@@ -4,7 +4,7 @@ description: Zerok
 home: https://www.zerok.ai/
 icon: https://static.wixstatic.com/media/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.0.0"
 maintainers:
   - name: avingoyal
