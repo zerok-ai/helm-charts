@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "zk-scenario-manager.fullname" . }}
+  labels:
+    app: zk-scenario-manager
+    {{- include "zk-scenario-manager.labels" . | nindent 4 }}
+  namespace: zk-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zk-scenario-manager
+    {{- include "zk-scenario-manager.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: zk-scenario-manager
+      {{- include "zk-scenario-manager.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - image: "{{ .Values.global.dockerBase}}/{{ .Values.image.repo}}:{{ .Values.image.tag}}"
+        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+        name: zk-scenario-manager
+        ports:
+          - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          successThreshold: 3
+        resources: {{- toYaml .Values.zkScenarioManager.resources | nindent 10 }}
+        volumeMounts:
+        - mountPath: /zk/config
+          name: config
+        env: # Setting Enviornmental Variables
+          - name: ZK_REDIS_PASSWORD # Setting Redis password from Secret
+            valueFrom:
+              secretKeyRef:
+                name: redis
+                key: redis-password
+          - name: ZK_REDIS_HOST # Setting Redis password from Secret
+            valueFrom:
+              configMapKeyRef:
+                name: zk-redis-config
+                key: redisHost
+      volumes:
+      - configMap:
+          name: {{ include "zk-scenario-manager.fullname" . }}
+        name: config
