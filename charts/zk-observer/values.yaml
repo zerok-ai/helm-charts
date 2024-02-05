@@ -1,5 +1,5 @@
 global:
-  dockerBase: "muditkmathur"
+  dockerBase: "zerokai"
 
 replicaCount: 1
 
