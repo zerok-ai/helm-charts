@@ -1,0 +1,59 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  image:
+    pullPolicy: Always
+  dockerBase: "us-west1-docker.pkg.dev/zerok-dev/zk-client"
+
+image:
+  repo: "zk-operator"
+  tag: "latest"
+  imagePullPolicy: Always
+
+replicaCount: 1
+
+restartPolicy: OnFailure
+imagePullSecrets: [ ]
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  annotations: { }
+  name: "zk-operator"
+
+service:
+  type: ClusterIP
+  port: 8472
+
+ingress:
+  enabled: false
+  className: ""
+  annotations:
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+
+  hosts:
+    - host: ''
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: [ ]
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 128Mi
+  requests:
+    cpu: 10m
+    memory: 64Mi
+
+serviceConfigs:
+  logs:
+    color: true
+    level: DEBUG
+
+
+# enable init container
+enableInitContainer: false
