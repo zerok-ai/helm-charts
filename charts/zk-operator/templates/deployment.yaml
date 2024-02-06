@@ -64,7 +64,7 @@ spec:
             configMapKeyRef:
               name: zk-redis-config
               key: redisHost
-        image: "{{ index .Values.global.dockerBase }}/{{ index .Values.image.repo }}:{{ index .Values.image.tag  }}"
+        image: "{{ index .Values.global.dockerBase }}/{{ index .Values.image.repo }}:{{ include "zk-operator.chartVersion" . }}"
         imagePullPolicy: {{ .Values.global.image.pullPolicy }}
         livenessProbe:
           httpGet:

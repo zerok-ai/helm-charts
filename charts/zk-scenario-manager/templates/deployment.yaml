@@ -19,7 +19,7 @@ spec:
       {{- include "zk-scenario-manager.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - image: "{{ .Values.global.dockerBase}}/{{ .Values.image.repo}}:{{ .Values.image.tag}}"
+      - image: "{{ .Values.global.dockerBase}}/{{ .Values.image.repo}}:{{ include "zk-scenario-manager.chartVersion" . }}"
         imagePullPolicy: {{ .Values.image.imagePullPolicy }}
         name: zk-scenario-manager
         ports:
