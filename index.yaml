@@ -130,6 +130,49 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-client-0.1.0/zk-client-0.1.0.tgz
     version: 0.1.0
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/zerok-ai/helm-charts
+    apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-06T14:17:49.27259699Z"
+    dependencies:
+    - condition: zk-operator.enabled
+      name: zk-operator
+      repository: https://helm.zerok.ai/zk-client/zk-operator
+      version: 0.0.2-clientonly
+    - condition: zk-otlp-receiver.enabled
+      name: zk-otlp-receiver
+      repository: https://helm.zerok.ai/zk-client/zk-otlp-receiver
+      version: 0.1.11-alpha
+    - condition: zk-scenario-manager.enabled
+      name: zk-scenario-manager
+      repository: https://helm.zerok.ai/zk-client/zk-scenario-manager
+      version: 0.1.26-debug
+    - condition: redis.enabled
+      name: zk-redis
+      repository: https://helm.zerok.ai/zk-client/zk-redis
+      version: 0.1.0-alpha
+    description: Zerok
+    digest: e6462bbe5186eb3737d8c16cb12570afce6424bc1ee28d6860475137e1200f16
+    home: https://www.zerok.ai/
+    icon: https://static.wixstatic.com/media/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png
+    keywords:
+    - monitoring
+    - ebpf
+    - otel
+    - opentelemetry
+    - zerok
+    maintainers:
+    - email: avingoyal01+github@gmail.com
+      name: avingoyal
+    name: zk-client
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-client-0.0.1/zk-client-0.0.1.tgz
+    version: 0.0.1
   zk-observer:
   - apiVersion: v2
     appVersion: 0.1.0
@@ -141,6 +184,16 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-observer-0.1.0/zk-observer-0.1.0.tgz
     version: 0.1.0
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-06T14:17:49.408946553Z"
+    description: A Helm chart for Kubernetes
+    digest: c5999692956dfb408c37a50ed1ed431020334a673fa4f997f3ac1d692124b9b5
+    name: zk-observer
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-observer-0.0.1/zk-observer-0.0.1.tgz
+    version: 0.0.1
   zk-operator:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -152,6 +205,16 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-operator-0.1.0/zk-operator-0.1.0.tgz
     version: 0.1.0
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-06T14:17:49.534011736Z"
+    description: A Helm chart for Kubernetes
+    digest: 38ee2a4d7493549e498b0642c7335cf4b48dacdf89a947a3e0ff9c946e7780be
+    name: zk-operator
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-operator-0.0.1/zk-operator-0.0.1.tgz
+    version: 0.0.1
   zk-scenario-manager:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -183,4 +246,14 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.1.0/zk-scenario-manager-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-02T13:39:52.948545219Z"
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-06T14:17:49.631257909Z"
+    description: A Helm chart for Kubernetes
+    digest: 3ae7c5bdd432b5d28228a1ffb96125052eea04eb875fb8e54e54b053a16211e8
+    name: zk-scenario-manager
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.1/zk-scenario-manager-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-02-06T14:17:49.631287845Z"
