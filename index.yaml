@@ -217,36 +217,6 @@ entries:
     version: 0.0.1
   zk-scenario-manager:
   - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2024-02-02T13:39:52.948522356Z"
-    description: A Helm chart for Kubernetes
-    digest: 7ef3d2a443cd9ffcc0ddee93a89e9b8e0b30553cab484af4e3e8a328328258f4
-    name: zk-scenario-manager
-    type: application
-    urls:
-    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.1.2/zk-scenario-manager-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2024-02-02T11:01:48.218663811Z"
-    description: A Helm chart for Kubernetes
-    digest: 3d3eb3685c23aa1b575fafa6069a35c5f74df1a7c33826711368139cebc034bb
-    name: zk-scenario-manager
-    type: application
-    urls:
-    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.1.1/zk-scenario-manager-0.1.1.tgz
-    version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2024-02-02T10:58:15.755585621Z"
-    description: A Helm chart for Kubernetes
-    digest: 9e23c0be78396978aef08e6dd17ac749946531cdca4a7ec8216f9da994be601e
-    name: zk-scenario-manager
-    type: application
-    urls:
-    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.1.0/zk-scenario-manager-0.1.0.tgz
-    version: 0.1.0
-  - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-02-06T14:17:49.631257909Z"
     description: A Helm chart for Kubernetes
