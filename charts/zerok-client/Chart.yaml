@@ -11,17 +11,17 @@ maintainers:
     email: avingoyal01+github@gmail.com
 dependencies:
   - name: zk-operator
-    version: "0.0.1"
+    version: "0.0.2"
     repository: https://zerok-ai.github.io/helm-charts
     condition: zk-operator.enabled
 
   - name: zk-observer
-    version: "0.0.1"
+    version: "0.0.4"
     repository: https://zerok-ai.github.io/helm-charts
     condition: zk-otlp-receiver.enabled
 
   - name: zk-scenario-manager
-    version: "0.0.1"
+    version: "0.0.2"
     repository: https://zerok-ai.github.io/helm-charts
     condition: zk-scenario-manager.enabled
 
