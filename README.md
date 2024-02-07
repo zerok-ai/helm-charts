@@ -4,7 +4,7 @@
 
 This functionality is in beta and is subject to change. The code is provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.
 
-## Usage
+## Get Helm Repositories Info
 
 [Helm](https://helm.sh) must be installed to use the charts.
 Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
@@ -16,6 +16,33 @@ helm repo add zerok-ai https://zerok-ai.github.io/helm-charts
 ```
 
 You can then run `helm search repo zerok-ai` to see the charts.
+
+## Install Helm Chart
+
+```console
+helm install [RELEASE_NAME] zerok-ai/zk-client
+```
+
+_See [helm install](https://helm.sh/docs/helm/helm_install/) for command documentation._
+
+## Uninstall Helm Chart
+
+```console
+helm uninstall [RELEASE_NAME]
+```
+
+This removes all the Kubernetes components associated with the chart and deletes the release.
+
+_See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall/) for command documentation._
+
+## Upgrading Helm Chart
+
+```console
+helm upgrade [RELEASE_NAME] [CHART] --install
+```
+
+_See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documentation._
+
 
 [//]: # (## Contributing)
 ## Source Code
