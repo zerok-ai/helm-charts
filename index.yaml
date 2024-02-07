@@ -303,6 +303,16 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-02-07T09:31:37.328834304Z"
+    description: A Helm chart for Kubernetes
+    digest: 6781c9bf7ba4a9e6fc862170e8797216f72e71b48955ad1f54c31a4a1bf4b8a5
+    name: zk-operator
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-operator-0.0.3/zk-operator-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-02-07T08:10:19.201100151Z"
     description: A Helm chart for Kubernetes
     digest: 6923f18529b1f9cde6a43570b8c5bc1d3d4e8bab5c64f8f7028b4c39b0b8c248
@@ -342,4 +352,4 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.1/zk-scenario-manager-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-07T08:21:52.92655178Z"
+generated: "2024-02-07T09:31:37.328866123Z"
