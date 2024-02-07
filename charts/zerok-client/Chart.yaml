@@ -15,7 +15,7 @@ dependencies:
     repository: https://zerok-ai.github.io/helm-charts
     condition: zk-operator.enabled
 
-  - name: zk-otlp-receiver
+  - name: zk-observer
     version: "0.0.4"
     repository: https://zerok-ai.github.io/helm-charts
     condition: zk-otlp-receiver.enabled
