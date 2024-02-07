@@ -65,5 +65,5 @@ Create the name of the service account to use
 fetch a chart version from chart.yaml and using this as a image tag in deployment.yaml
 */}}
 {{- define "zk-observer.chartVersion" -}}
-  {{- required "Error: chart version is required" .Chart.Version | quote -}}
+  {{- required "Error: chart version is required" .Chart.Version }}
 {{- end -}}
