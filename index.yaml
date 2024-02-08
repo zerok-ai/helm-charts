@@ -137,6 +137,49 @@ entries:
           url: https://github.com/zerok-ai/helm-charts
     apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-02-08T02:47:50.197314437Z"
+    dependencies:
+    - condition: redis.enabled
+      name: zk-redis
+      repository: https://helm.zerok.ai/zk-client/zk-redis
+      version: 0.1.0-alpha
+    - condition: zk-otlp-receiver.enabled
+      name: zk-observer
+      repository: https://zerok-ai.github.io/helm-charts
+      version: 0.0.4
+    - condition: zk-operator.enabled
+      name: zk-operator
+      repository: https://zerok-ai.github.io/helm-charts
+      version: 0.0.3
+    - condition: zk-scenario-manager.enabled
+      name: zk-scenario-manager
+      repository: https://zerok-ai.github.io/helm-charts
+      version: 0.0.2
+    description: Zerok
+    digest: 11c9c2e9221c60e9dbd832e7c7fe9ba54ca5073e4c77c2540d63b71897aaa87b
+    home: https://www.zerok.ai/
+    icon: https://static.wixstatic.com/media/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png
+    keywords:
+    - monitoring
+    - ebpf
+    - otel
+    - opentelemetry
+    - zerok
+    maintainers:
+    - email: avingoyal01+github@gmail.com
+      name: avingoyal
+    name: zk-client
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-client-0.0.5/zk-client-0.0.5.tgz
+    version: 0.0.5
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/zerok-ai/helm-charts
+    apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-02-07T09:33:42.273775081Z"
     dependencies:
     - condition: zk-operator.enabled
@@ -395,4 +438,4 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.1/zk-scenario-manager-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-07T09:33:42.273809966Z"
+generated: "2024-02-08T02:47:50.197340877Z"
