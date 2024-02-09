@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "zk-scenario-manager.name" -}}
+{{- define "zk-operator.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "zk-scenario-manager.fullname" -}}
+{{- define "zk-operator.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,17 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "zk-scenario-manager.chart" -}}
+{{- define "zk-operator.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "zk-scenario-manager.labels" -}}
-helm.sh/chart: {{ include "zk-scenario-manager.chart" . }}
-app.kubernetes.io/name: {{ include "zk-scenario-manager.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+{{- define "zk-operator.labels" -}}
+helm.sh/chart: {{ include "zk-operator.chart" . }}
+{{ include "zk-operator.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "zk-scenario-manager.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "zk-scenario-manager.name" . }}
+{{- define "zk-operator.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "zk-operator.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "zk-scenario-manager.serviceAccountName" -}}
+{{- define "zk-operator.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "zk-scenario-manager.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "zk-operator.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -65,6 +64,6 @@ Create the name of the service account to use
 {{/*
 fetch a chart version from chart.yaml and using this as a image tag in deployment.yaml
 */}}
-{{- define "zk-scenario-manager.chartVersion" -}}
+{{- define "zk-operator.chartVersion" -}}
   {{- required "Error: chart version is required" .Chart.Version }}
 {{- end -}}

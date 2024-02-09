@@ -4,31 +4,32 @@ description: Zerok
 home: https://www.zerok.ai/
 icon: https://static.wixstatic.com/media/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5e2834_9790c5820b864bcbae77c733bdc756de%7Emv2.png
 type: application
-version: 0.1.1
-appVersion: "1.0.0"
+version: 0.0.7
+appVersion: "0.0.1"
 maintainers:
   - name: avingoyal
     email: avingoyal01+github@gmail.com
 dependencies:
-  - name: zk-operator
-    version: "0.0.2-clientonly"
-    repository: https://helm.zerok.ai/zk-client/zk-operator
-    condition: zk-operator.enabled
-
-  - name: zk-otlp-receiver
-    version: "0.1.11-alpha"
-    repository: https://helm.zerok.ai/zk-client/zk-otlp-receiver
-    condition: zk-otlp-receiver.enabled
-
-  - name: zk-scenario-manager
-    version: "0.1.26-debug"
-    repository: https://helm.zerok.ai/zk-client/zk-scenario-manager
-    condition: zk-scenario-manager.enabled
-
   - name: zk-redis
     condition: redis.enabled
     version: "0.1.0-alpha"
     repository: https://helm.zerok.ai/zk-client/zk-redis
+
+  - name: zk-observer
+    version: "0.0.12"
+    repository: https://zerok-ai.github.io/helm-charts
+    condition: zk-otlp-receiver.enabled
+
+  - name: zk-operator
+    version: "0.0.4"
+    repository: https://zerok-ai.github.io/helm-charts
+    condition: zk-operator.enabled
+
+  - name: zk-scenario-manager
+    version: "0.0.3"
+    repository: https://zerok-ai.github.io/helm-charts
+    condition: zk-scenario-manager.enabled
+
 keywords:
   - monitoring
   - ebpf

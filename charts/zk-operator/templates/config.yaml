@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  operator-config.yaml: |
+    redis:
+      port: 6379
+      readTimeout: 20
+      dbs:
+        scenarios: 2
+    http:
+      port: 8472
+    logs:
+      color: {{ .Values.serviceConfigs.logs.color }}
+      level: {{ .Values.serviceConfigs.logs.level }}
+kind: ConfigMap
+metadata:
+  name: zk-operator
+  namespace: zk-client

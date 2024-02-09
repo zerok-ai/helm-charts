@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    control-plane: controller-manager
+    app: zk-operator
+    {{- include "zk-operator.labels" . | nindent 4 }}
+  name: {{ include "zk-operator.fullname" . }}
+  namespace: zk-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zk-operator
+      control-plane: controller-manager
+    {{- include "zk-operator.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: manager
+      labels:
+        app: zk-operator
+        control-plane: controller-manager
+      {{- include "zk-operator.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - args:
+        - --secure-listen-address=0.0.0.0:8443
+        - --upstream=http://127.0.0.1:8080/
+        - --logtostderr=true
+        - --v=0
+        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.13.0
+        name: kube-rbac-proxy
+        ports:
+        - containerPort: 8443
+          name: https
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 5m
+            memory: 64Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+      - env:
+        - name: CONFIG_FILE
+          value: /opt/operator-config.yaml
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: ZK_REDIS_PASSWORD # Setting Redis password from Secret
+          valueFrom:
+            secretKeyRef:
+              name: redis
+              key: redis-password
+        - name: ZK_REDIS_HOST # Setting Redis password from Secret
+          valueFrom:
+            configMapKeyRef:
+              name: zk-redis-config
+              key: redisHost
+        image: "{{ index .Values.global.dockerBase }}/{{ index .Values.image.repo }}:{{ include "zk-operator.chartVersion" . }}"
+        imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        name: manager
+        ports:
+        - containerPort: 8472
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        volumeMounts:
+        - mountPath: /opt
+          name: zk-operator-config
+      serviceAccountName: zk-operator
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - configMap:
+          name: {{ include "zk-operator.fullname" . }}
+        name: zk-operator-config
