@@ -3,13 +3,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: zk-operator
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: zk-operator-leader-election-role
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 rules:
 - apiGroups:
   - ""
@@ -140,7 +140,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: zk-operator-leader-election-rolebinding
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -148,7 +148,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: zk-operator
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -161,7 +161,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: zk-operator
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -174,4 +174,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: zk-operator
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}

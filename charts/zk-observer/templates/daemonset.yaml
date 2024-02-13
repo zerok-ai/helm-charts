@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: zk-observer
+  namespace: {{ .Release.Namespace }}
   labels:
   {{- include "helm-charts.labels" . | nindent 4 }}
 spec:
