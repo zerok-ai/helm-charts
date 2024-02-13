@@ -89,6 +89,16 @@ entries:
     version: 0.0.1
   zk-observer:
   - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2024-02-13T12:34:43.475334024Z"
+    description: A Helm chart for Kubernetes
+    digest: d291944ad71865f9a391dd89925dd7075de357e3ebd50b9f7615aca4431fb980
+    name: zk-observer
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-observer-0.0.2/zk-observer-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-02-06T14:17:49.408946553Z"
     description: A Helm chart for Kubernetes
@@ -99,6 +109,16 @@ entries:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-observer-0.0.1/zk-observer-0.0.1.tgz
     version: 0.0.1
   zk-operator:
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2024-02-13T12:34:43.621089981Z"
+    description: A Helm chart for Kubernetes
+    digest: df29ccd1c21ccd8ee5b9e3be1682e3cdd384b51756461979a3bc58bc533006c1
+    name: zk-operator
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-operator-0.0.2/zk-operator-0.0.2.tgz
+    version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-02-06T14:17:49.534011736Z"
@@ -111,6 +131,16 @@ entries:
     version: 0.0.1
   zk-scenario-manager:
   - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2024-02-13T12:34:43.740203253Z"
+    description: A Helm chart for Kubernetes
+    digest: 13e797c403913726533c68ac050962bef179ad50c50eacea226ef6e00b21c440
+    name: zk-scenario-manager
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.2/zk-scenario-manager-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-02-06T14:17:49.631257909Z"
     description: A Helm chart for Kubernetes
@@ -120,4 +150,4 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.1/zk-scenario-manager-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-12T05:52:27.78375935Z"
+generated: "2024-02-13T12:34:43.740220897Z"
