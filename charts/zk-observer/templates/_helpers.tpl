@@ -67,3 +67,10 @@ fetch a chart version from chart.yaml and using this as a image tag in deploymen
 {{- define "zk-observer.chartVersion" -}}
   {{- required "Error: chart version is required" .Chart.Version }}
 {{- end -}}
+
+{{/*
+fetch a chart version from chart.yaml and using this as a image tag in deployment.yaml
+*/}}
+{{- define "zk-observer.appVersion" -}}
+  {{- required "Error: App version is required" .Chart.AppVersion }}
+{{- end -}}

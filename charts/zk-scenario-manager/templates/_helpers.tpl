@@ -68,3 +68,11 @@ fetch a chart version from chart.yaml and using this as a image tag in deploymen
 {{- define "zk-scenario-manager.chartVersion" -}}
   {{- required "Error: chart version is required" .Chart.Version }}
 {{- end -}}
+
+{{/*
+
+fetch a chart version from chart.yaml and using this as a image tag in deployment.yaml
+*/}}
+{{- define "zk-scenario-manager.appVersion" -}}
+  {{- required "Error: App version is required" .Chart.AppVersion }}
+{{- end -}}
