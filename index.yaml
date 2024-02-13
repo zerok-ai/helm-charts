@@ -47,6 +47,16 @@ entries:
   zk-observer:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-02-13T13:14:05.396660176Z"
+    description: A Helm chart for Kubernetes
+    digest: 21d4f9847272e6e0e67e23b16f3232e8516a3ad3b1b551676d6431bf434a0d5e
+    name: zk-observer
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-observer-0.0.2/zk-observer-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-02-06T14:17:49.408946553Z"
     description: A Helm chart for Kubernetes
     digest: c5999692956dfb408c37a50ed1ed431020334a673fa4f997f3ac1d692124b9b5
@@ -56,6 +66,16 @@ entries:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-observer-0.0.1/zk-observer-0.0.1.tgz
     version: 0.0.1
   zk-operator:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-02-13T13:14:05.607354514Z"
+    description: A Helm chart for Kubernetes
+    digest: 6a57a007dbd347c05a35189adf513f0a87a40890db5bcabad941af8ebc412bdd
+    name: zk-operator
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-operator-0.0.2/zk-operator-0.0.2.tgz
+    version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-02-06T14:17:49.534011736Z"
@@ -69,6 +89,16 @@ entries:
   zk-scenario-manager:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-02-13T13:14:05.786192599Z"
+    description: A Helm chart for Kubernetes
+    digest: 9fcec0678c3742136c343c1568bff602c88072cbf0bf6594d18ed3827e53c4d4
+    name: zk-scenario-manager
+    type: application
+    urls:
+    - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.2/zk-scenario-manager-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-02-06T14:17:49.631257909Z"
     description: A Helm chart for Kubernetes
     digest: 3ae7c5bdd432b5d28228a1ffb96125052eea04eb875fb8e54e54b053a16211e8
@@ -77,4 +107,4 @@ entries:
     urls:
     - https://github.com/zerok-ai/helm-charts/releases/download/zk-scenario-manager-0.0.1/zk-scenario-manager-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-13T12:34:43.740220897Z"
+generated: "2024-02-13T13:14:05.786206836Z"
