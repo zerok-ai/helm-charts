@@ -5,7 +5,7 @@ metadata:
   labels:
     app: zk-scenario-manager
     {{- include "zk-scenario-manager.labels" . | nindent 4 }}
-  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:

@@ -5,7 +5,7 @@ metadata:
   labels:
     name: zk-operator-inject
   name: zk-operator-inject
-  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
+  namespace: {{ .Values.namespace }}
 spec:
   ports:
   - name: zk-webhook
@@ -20,7 +20,7 @@ metadata:
   labels:
     control-plane: controller-manager
   name: zk-operator-metrics
-  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
+  namespace: {{ .Values.namespace }}
 spec:
   ports:
   - name: https
@@ -37,7 +37,7 @@ metadata:
     name: zk-operator
     app.kubernetes.io/name: zk-operator
   name: zk-operator
-  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
+  namespace: {{ .Values.namespace }}
 spec:
   ports:
   - name: web
