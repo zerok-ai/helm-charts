@@ -5,8 +5,6 @@ global:
     pullPolicy: Always
   dockerBase: "zerokai"
 
-namespace : "zk-client"
-
 image:
   repo: "zk-operator"
   tag: "latest"

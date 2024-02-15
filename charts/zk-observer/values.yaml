@@ -1,8 +1,6 @@
 global:
   dockerBase: "zerokai"
 
-namespace : "zk-client"
-
 replicaCount: 1
 
 image:

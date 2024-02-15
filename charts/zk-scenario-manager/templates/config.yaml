@@ -33,4 +33,4 @@ metadata:
   labels:
     app: {{ include "zk-scenario-manager.fullname" . }}
     name: {{ include "zk-scenario-manager.fullname" . }}
-  namespace: {{ .Values.namespace }}
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}

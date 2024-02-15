@@ -6,7 +6,7 @@ metadata:
     app: zk-operator
     {{- include "zk-operator.labels" . | nindent 4 }}
   name: {{ include "zk-operator.fullname" . }}
-  namespace: {{ .Values.namespace }}
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 spec:
   replicas: 1
   selector:

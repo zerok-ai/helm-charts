@@ -5,8 +5,6 @@
 global:
   dockerBase: "zerokai"
 
-namespace : "zk-client"
-
 obfuscate: false
 
 replicaCount: 1
