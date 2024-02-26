@@ -5,7 +5,7 @@ metadata:
   labels:
     app: zk-scenario-manager
     {{- include "zk-scenario-manager.labels" . | nindent 4 }}
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 spec:
   replicas: 1
   selector:
@@ -19,7 +19,7 @@ spec:
       {{- include "zk-scenario-manager.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - image: "{{ .Values.global.dockerBase}}/{{ .Values.image.repo}}:{{ include "zk-scenario-manager.chartVersion" . }}"
+      - image: "{{ .Values.global.dockerBase}}/{{ .Values.image.repo}}:{{ include "zk-scenario-manager.appVersion" . }}"
         imagePullPolicy: {{ .Values.image.imagePullPolicy }}
         name: zk-scenario-manager
         ports:

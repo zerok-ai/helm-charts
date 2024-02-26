@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: zk-observer
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
   labels:
   {{- include "helm-charts.labels" . | nindent 4 }}
 spec:
@@ -49,7 +50,7 @@ spec:
             configMapKeyRef:
               name: "zk-redis-config"
               key: "redisHost"
-        image: "{{.Values.global.dockerBase}}/{{.Values.image.repo}}:{{ include "zk-observer.chartVersion" . }}"
+        image: "{{.Values.global.dockerBase}}/{{.Values.image.repo}}:{{ include "zk-observer.appVersion" . }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: zk-observer
         ports:

@@ -6,7 +6,7 @@ metadata:
     app: zk-operator
     {{- include "zk-operator.labels" . | nindent 4 }}
   name: {{ include "zk-operator.fullname" . }}
-  namespace: zk-client
+  namespace: {{ if .Release.Namespace }}{{ .Release.Namespace }}{{ else }}zk-client{{ end }}
 spec:
   replicas: 1
   selector:
@@ -64,7 +64,7 @@ spec:
             configMapKeyRef:
               name: zk-redis-config
               key: redisHost
-        image: "{{ index .Values.global.dockerBase }}/{{ index .Values.image.repo }}:{{ include "zk-operator.chartVersion" . }}"
+        image: "{{ index .Values.global.dockerBase }}/{{ index .Values.image.repo }}:{{ include "zk-operator.appVersion" . }}"
         imagePullPolicy: {{ .Values.global.image.pullPolicy }}
         livenessProbe:
           httpGet:
